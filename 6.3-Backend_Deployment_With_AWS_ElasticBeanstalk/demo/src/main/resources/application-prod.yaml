@@ -1,0 +1,13 @@
+server:
+  port : 5000
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${rds.hostname}:${rds.port}/${rds.db.name}
+    username: ${rds.username}
+    password: ${rds.password}
