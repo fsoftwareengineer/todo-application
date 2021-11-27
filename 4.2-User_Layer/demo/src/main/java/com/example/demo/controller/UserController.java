@@ -56,7 +56,7 @@ public class UserController {
 		if(user != null) {
 			// 토큰 생성
 			final UserDTO responseUserDTO = UserDTO.builder()
-							.email(user.getUsername())
+							.email(user.getEmail())
 							.id(user.getId())
 							.build();
 			return ResponseEntity.ok().body(responseUserDTO);
