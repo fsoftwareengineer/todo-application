@@ -26,4 +26,4 @@ $ npm start
 ```
 
 ### 질문과 답변
-질문이 있으신 경ㅇ https://github.com/fsoftwareengineer/todo-application/discussions 의 질문고 답변에 게시글을 작성 해 주시기 바랍니다.
+질문이 있으신 경우 https://github.com/fsoftwareengineer/todo-application/discussions 의 질문과 답변에 게시글을 작성해 주시기 바랍니다.
