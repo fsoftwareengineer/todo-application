@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "../app-config";
 
-export function call(api, method, request) {
+export const call = (api, method, request) => {
   let options = {
     headers: new Headers({
       "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export function call(api, method, request) {
     });
 }
 
-export function signin(userDTO) {
+export const signin = (userDTO) => {
   return call("/auth/signin", "POST", userDTO).then((response) => {
     if (response.token) {
       // token이 존재하는 경우 Todo 화면으로 리디렉트

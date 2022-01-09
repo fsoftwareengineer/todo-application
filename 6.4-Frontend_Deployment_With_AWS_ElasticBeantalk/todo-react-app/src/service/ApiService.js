@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "../app-config";
 const ACCESS_TOKEN = "ACCESS_TOKEN";
 
-export function call(api, method, request) {
+export const call = (api, method, request) => {
   let headers = new Headers({
     "Content-Type": "application/json",
   });
@@ -34,7 +34,6 @@ export function call(api, method, request) {
     )
     .catch((error) => {
       // 추가된 부분
-      console.log(error);
       console.log(error.status);
       if (error.status === 403) {
         window.location.href = "/login"; // redirect
@@ -43,7 +42,7 @@ export function call(api, method, request) {
     });
 }
 
-export function signin(userDTO) {
+export const signin = (userDTO) => {
   return call("/auth/signin", "POST", userDTO).then((response) => {
     if (response.token) {
       // 로컬 스토리지에 토큰 저장
@@ -54,11 +53,12 @@ export function signin(userDTO) {
   });
 }
 
-export function signout() {
+export const signout = () => {
   localStorage.setItem(ACCESS_TOKEN, null);
   window.location.href = "/login";
 }
 
-export function signup(userDTO) {
+
+export const signup = (userDTO) => {
   return call("/auth/signup", "POST", userDTO);
 }

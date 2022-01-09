@@ -6,13 +6,9 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Container } from "@material-ui/core";
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const Login = () => {
 
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
     const email = data.get("email");
@@ -21,7 +17,6 @@ class Login extends React.Component {
     signin({ email: email, password: password });
   }
 
-  render() {
     return (
       <Container component="main" maxWidth="xs" style={{ marginTop: "8%" }}>
         <Grid container spacing={2}>
@@ -31,7 +26,7 @@ class Login extends React.Component {
             </Typography>
           </Grid>
         </Grid>
-        <form noValidate onSubmit={this.handleSubmit}>
+        <form noValidate onSubmit={handleSubmit}>
           {" "}
           {/* submit 버튼을 누르면 handleSubmit이 실행됨. */}
           <Grid container spacing={2}>
@@ -72,7 +67,6 @@ class Login extends React.Component {
         </form>
       </Container>
     );
-  }
 }
 
 export default Login;

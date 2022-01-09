@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Login = (props) => {
+  const [state, setState] = useState({});
 
-  render() {
-    return <p>로그인 페이지</p>;
-  }
-}
+  return <p>로그인 페이지</p>;
+};
 
 export default Login;

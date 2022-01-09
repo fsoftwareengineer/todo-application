@@ -1,52 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo.js";
 import { Paper, List, Container } from "@material-ui/core";
 import "./App.css";
 import { call } from "./service/ApiService";
+import { useEffect } from "react";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-    };
-  }
+const App = () => {
+  const [state, setState] = useState({ items: []});
 
-  componentDidMount() {
+  // componentDidMount 대신 userEffect 사용
+  useEffect(() => {
     call("/todo", "GET", null).then((response) =>
-      this.setState({ items: response.data })
+      setState({ items: response.data })
     );
-  }
+  }, []);
 
-  add = (item) => {
+  const add = (item) => {
     call("/todo", "POST", item).then((response) =>
-      this.setState({ items: response.data })
+      setState({ items: response.data })
     );
   };
 
-  delete = (item) => {
+  const deleteItem = (item) => {
     call("/todo", "DELETE", item).then((response) =>
-      this.setState({ items: response.data })
+      setState({ items: response.data })
     );
   };
 
-  update = (item) => {
+  const update = (item) => {
     call("/todo", "PUT", item).then((response) =>
-      this.setState({ items: response.data })
+      setState({ items: response.data })
     );
   };
 
-  render() {
-    var todoItems = this.state.items.length > 0 && (
+
+    var todoItems = state.items.length > 0 && (
       <Paper style={{ margin: 16 }}>
         <List>
-          {this.state.items.map((item, idx) => (
+          {state.items.map((item, idx) => (
             <Todo
               item={item}
               key={item.id}
-              delete={this.delete}
-              update={this.update}
+              deleteItem={deleteItem}
+              update={update}
             />
           ))}
         </List>
@@ -57,12 +54,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <Container maxWidth="md">
-          <AddTodo add={this.add} />
+          <AddTodo add={add} />
           <div className="TodoList">{todoItems}</div>
         </Container>
       </div>
     );
   }
-}
 
 export default App;

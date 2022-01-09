@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "../app-config";
 
-export function call(api, method, request) {
+export const call = (api, method, request) => {
   let options = {
     headers: new Headers({
       "Content-Type": "application/json",

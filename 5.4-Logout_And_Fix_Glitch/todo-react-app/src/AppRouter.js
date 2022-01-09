@@ -16,8 +16,7 @@ function Copyright() {
   );
 }
 
-class AppRouter extends React.Component {
-  render() {
+const AppRouter = () => {
     return (
       <div>
         <Router>
@@ -37,7 +36,6 @@ class AppRouter extends React.Component {
         </Router>
       </div>
     );
-  }
 }
 
 export default AppRouter;
