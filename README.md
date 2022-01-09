@@ -10,10 +10,10 @@ $ git clone https://github.com/fsoftwareengineer/todo-application.git
 
 함수형 컴포넌트로 프론트엔드 코드를 진행하고자 하신다면 아래와 같이 branch를 `functional-components`로 변경 해 주시기 바랍니다.
 
-`
+```
 $ cd <프로젝트 디렉터리>
 $ git switch functional-components
-`
+```
 
 ### 백엔드 코드 실행
 
