@@ -7,10 +7,8 @@ const AddTodo = ( props ) => {
   const add = props.add;
 
   const onInputChange = (e) => {
-    const thisItem = state.item;
-    thisItem.title = e.target.value;
-    setState({ item: thisItem });
-    console.log(thisItem);
+    setState({ item: e.target.value });
+    console.log(state.item);
   };
 
   const onButtonClick = () => {
@@ -33,6 +31,7 @@ const AddTodo = ( props ) => {
             fullWidth
             onChange={onInputChange}
             onKeyPress={enterKeyEventHandler}
+            value={state.item}
           />
         </Grid>
         <Grid xs={1} md={1} item>
