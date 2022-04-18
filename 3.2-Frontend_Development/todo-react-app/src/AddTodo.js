@@ -32,7 +32,6 @@ const AddTodo = ( props ) => {
             placeholder="Add Todo here"
             fullWidth
             onChange={onInputChange}
-            value={state.item.title}
             onKeyPress={enterKeyEventHandler}
           />
         </Grid>
